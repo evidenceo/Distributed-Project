@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Period Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+
+     <!-- FullCalendar Core CSS -->
+    <link href='/static/main.min.css' rel='stylesheet' />
+
+    <!-- FullCalendar Core JS -->
+    <script src='/static/main.min.js' defer></script>
+</head>
+<body>
+<nav class="nav-container">
+    <ul class="navbar">
+        <li><a href="/log">Log</a></li>
+        <li><a href="/report">Report</a></li>
+        <li><a href="/recommendations">Recommendations</a></li>
+        <li><a href="/account">Account</a></li>
+    </ul>
+</nav>
+
+<section class="dashboard">
+    <div id="dashboard-slider">
+        <!-- Slide 1: Welcome -->
+        <div class="slide">
+            <p>Welcome, <span id="user-first-name">{{ first_name }}!</span> </p>
+        </div>
+
+        <!-- Slide 2: Period Information -->
+        <div class="slide">
+            {% if on_period %}
+                <p>{{ current_day }} Day of Period</p>
+            {% else %}
+                <p>Your period is expected to start in {{ days_until_period }} days</p>
+            {% endif %}
+        </div>
+
+        <div class="slide">
+            <p>You are in your {{ current_phase }} phase</p>
+        </div>
+    </div>
+</section>
+
+<section class="calender-section">
+    <button onclick="window.location.href='/edit-period'" class="button">Edit Period</button>
+    <div id="calendar">
+        <!-- Calendar implementation here -->
+    </div>
+
+    <div id="dayPopup" class="popup-modal" style="display:none;">
+        <span class="close-popup" onclick="closePopup()">X</span>
+        <p>Select an option:</p>
+        <button onclick="markPeriodStart(selectedDate)">Period Start</button>
+        <button onclick="markPeriodEnd(selectedDate)">Period End</button>
+        <button onclick="deletePeriod()">Delete Period</button>
+        <button onclick="addSymptoms(selectedDate)">Add Symptoms</button>
+    </div>
+
+</section>
+<script src="/static/mainScript.js"></script>
+</body>
+</html>
