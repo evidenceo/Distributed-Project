@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Period Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<nav class="nav-container">
+    <ul class="navbar">
+        <li><a href="/log">Log</a></li>
+        <li><a href="/report">Report</a></li>
+        <li><a href="/recommendations">Recommendations</a></li>
+        <li><a href="/account">Account</a></li>
+    </ul>
+</nav>
+
+<section id="log-container">
+    <div id="date-navigator">
+        <button class="nav-button" id="prev-day">←</button>
+        <span id="current-date">[Date Here]</span>
+        <button class="nav-button" id="next-day">→</button>
+    </div>
+    <form id="symptoms-form">
+        <div class="symptom-input">
+            <button type="button" class="symptom-btn" id="flow-btn">Flow <span class="arrow">></span></button>
+            <div id="flow-list"> <!-- flow list will go here --> </div>
+            <div class="sym-modal" id="flow-modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="heavy-flow" name="flow" value="heavy">
+                        <label for="heavy-flow">Heavy Flow</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="medium-flow" name="flow" value="medium">
+                        <label for="medium-flow">Medium Flow</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="light-flow" name="flow" value="light">
+                        <label for="light-flow">Light Flow</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="symptom-input">
+            <button type="button" class="symptom-btn" id="med-btn">Medicine <span class="arrow">></span></button>
+            <div id="med-list"> <!-- medicine list will go here --> </div>
+            <div class="sym-modal" id="med-modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <input type="text" placeholder="Add medicine" id="medicine" value="medicine">
+                </div>
+            </div>
+        </div>
+        <div class="symptom-input">
+             <button type="button" class="symptom-btn" id="sex-btn">Intercourse <span class="arrow">></span></button>
+            <div id="sex-list"> <!-- sex list will go here --> </div>
+            <div class="sym-modal" id="sex-modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="with-protection" name="sex" value="with-protection">
+                        <label for="with-protection">With Protection</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="without-protection" name="sex" value="without-protection">
+                        <label for="without-protection">Without Protection</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="symptom-input">
+            <button type="button" class="symptom-btn" id="symptom-btn">Symptoms<span class="arrow">></span></button>
+            <div id="symptoms-list"> <!-- symptom list will go here --> </div>
+            <div class="sym-modal" id="sym-modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="diarrhea" name="symptom" value="diarrhea">
+                        <label for="diarrhea">Diarrhea</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="fatigue" name="symptom" value="fatigue">
+                        <label for="fatigue">Fatigue</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="pelvic-pain" name="symptom" value="pelvic-pain">
+                        <label for="pelvic-pain">Pelvic Pain</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="headache" name="symptom" value="headache">
+                        <label for="headache">Headache</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="lower-back-pain" name="symptom" value="lower-back-pain">
+                        <label for="lower-back-pain">Lower Back Pain</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="cramps" name="symptom" value="cramps">
+                        <label for="cramps">Cramps</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="bloating" name="symptom" value="bloating">
+                        <label for="bloating">Bloating</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="nausea" name="symptom" value="nausea">
+                        <label for="nausea">Nausea</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="symptom-input">
+            <button type="button" class="symptom-btn" id="mood-btn">Mood<span class="arrow">></span></button>
+            <div id="mood-list"> <!-- mood list will go here --> </div>
+            <div class="sym-modal" id="mood-modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="sleepy" name="mood" value="sleepy">
+                        <label for="sleepy">Sleepy</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="grumpy" name="mood" value="grumpy">
+                        <label for="grumpy">Grumpy</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="depressed" name="mood" value="depressed">
+                        <label for="sleepy">Depressed</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="cranky" name="mood" value="cranky">
+                        <label for="cranky">Cranky</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="confident" name="mood" value="confident">
+                        <label for="confident">Confident</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="emotional" name="mood" value="emotional">
+                        <label for="emotional">Emotional</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="happy" name="mood" value="happy">
+                        <label for="happy">Happy</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="anxious" name="mood" value="anxious">
+                        <label for="anxious">Anxious</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="symptom-input">
+            <div class="notes-container">
+                <p>Additional Notes</p>
+                <textarea id="add-notes" placeholder="Add additional notes here" class="add-notes"></textarea>
+                <div id="notes-list"> <!-- notes will go here --> </div>
+            </div>
+        </div>
+        <button type="submit" id="add-symptoms">Save</button>
+    </form>
+</section>
+</body>
+<script src="/static/logScript.js"></script>
+</html>
