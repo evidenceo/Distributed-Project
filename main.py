@@ -10,8 +10,6 @@ from PyPDF2 import PdfReader, PdfWriter
 import os
 import secrets
 
-
-
 app = Flask(__name__)
 
 # configure database and mail
@@ -38,12 +36,14 @@ mail = Mail(app)
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+
 # INDEX.HTML
 @app.route('/')
 def home():
     return render_template('index.html')
 
 
+# SIGNUP.HTML
 @app.route('/signup', methods=['GET'])
 def signup_form():
     return render_template('signup.html')
@@ -72,7 +72,12 @@ def signup():
     return jsonify({'success': True, 'message': 'Signup successful!'}), 200
 
 
-# Login endpoint
+# LOGIN.HTML
+@app.route('/login', methods=['GET'])
+def login_form():
+    return render_template('login.html')
+
+
 @app.route('/login', methods=['POST'])
 def login(authenticated=None):
     data = request.get_json()
@@ -96,6 +101,7 @@ def check_user_data():
     return jsonify({'needs_setup': needs_setup})
 
 
+# SETUP.HTML
 @app.route('/setup', methods=['GET'])
 @login_required
 def setup():
@@ -154,6 +160,7 @@ def create_initial_known_period(user_id, start_date, period_length):
     db.session.commit()
 
 
+# MAIN.HTML
 @app.route('/main', methods=['GET'])
 @login_required
 def main_page():
@@ -318,6 +325,7 @@ def delete_period(period_id):
     return jsonify({'success': True, 'message': 'Period data deleted successfully'}), 200
 
 
+# LOG.HTML
 @app.route('/log', methods=['GET'])
 @login_required
 def log_page():
@@ -530,6 +538,7 @@ def download_report():
     encrypted_file_path = retrieve_encrypted_file_path()
     return send_file(encrypted_file_path, as_attachment=True)
 
+
 def generate_pdf_report(user_id):
     user, past_cycles, symptoms = get_user_data(user_id)
 
@@ -541,44 +550,82 @@ def generate_pdf_report(user_id):
 
     # Add content to the PDF
     # Adding a title
+    c.setFont("Helvetica-Bold", 18)
+    c.drawString(200, 800, "Period Tracker")
+
+    # Adding User Name (adjust y-position to be below the title)
     c.setFont("Helvetica-Bold", 16)
-    c.drawString(100, 800, "Period Tracker")
+    c.drawString(200, 780, f"Report for {user.first_name} {user.last_name}")
 
-    # Adding User Name
+    # Adding 'Average' title and details (adjust y-position for each line)
     c.setFont("Helvetica-Bold", 14)
-    c.drawString(72, 800, f"Report for {user.first_name} {user.last_name}")
-
-    # Adding average cycle and period lengths
+    c.drawString(100, 760, "Average")
     c.setFont("Helvetica", 12)
-    c.drawString(72, 780, f"Average Cycle Length: {user.average_cycle_length} days")
-    c.drawString(72, 760, f"Average Period Length: {user.average_period_length} days")
+    c.drawString(72, 740, f"Average Cycle Length: {user.average_cycle_length} days")
+    c.drawString(72, 720, f"Average Period Length: {user.average_period_length} days")
 
-    # Adding Past Cycles
-    y_position = 740
+    # Adding 'Past Cycles' title and details
+    c.setFont("Helvetica-Bold", 14)
+    c.drawString(100, 700, "Past Cycles")
+    y_position = 680  # Adjust y_position for the start of past cycles
     for cycle in past_cycles:
+        c.setFont("Helvetica", 12)
         cycle_info = f"Cycle from {cycle.start_date.strftime('%Y-%m-%d')} to {cycle.end_date.strftime('%Y-%m-%d')}"
         c.drawString(72, y_position, cycle_info)
-        y_position -= 20  # Adjust y_position for next line
+        y_position -= 20
+        if y_position < 50:
+            c.showPage()
+            c.setFont("Helvetica", 12)
+            c.drawString(100, 800, "Past Cycles (cont.)")
+            y_position = 780
 
-    # Adding Symptoms
-    y_position = 700
+    # Adding 'Symptoms' title and details
+    c.setFont("Helvetica-Bold", 14)
+    c.drawString(100, y_position - 20, "Symptoms")
+    y_position -= 40
+    c.setFont("Helvetica", 12)
     for symptom in symptoms:
-        symptom_info = f"Symptoms on {symptom.date.strftime('%Y-%m-%d')}:{[symptom.flow, symptom.medicine,
-                                                                           symptom.intercourse_protection, 
-                                                                           symptom.symptoms, symptom.mood, 
-                                                                           symptom.notes]}"
-        c.drawString(72, y_position, symptom_info)
-        y_position -= 20  # Adjust y_position for next line
+        symptom_info = (
+            f"Symptoms on {symptom.date.strftime('%Y-%m-%d')}:\n"
+            f"Flow - {symptom.flow}\n"
+            f"Medicine - {symptom.medicine}\n"
+            f"Intercourse Protection - {symptom.intercourse_protection}\n"
+            f"Symptoms - {symptom.symptoms}\n"
+            f"Mood - {symptom.mood}\n"
+            f"Notes - {symptom.notes}"
+        )
+        y_position = draw_wrapped_text(c, symptom_info, 72, y_position, max_width=500)
 
         # Check if we need to start a new page
-        if y_position < 50:  # Example threshold for the bottom of the page
-            c.showPage()  # Start a new page
-            c.setFont("Helvetica", 12)  # Reset the font
+        if y_position < 50:
+            c.showPage()
+            c.setFont("Helvetica", 12)
             y_position = 800  # Reset y_position to the top of the new page
-
     c.save()
-
     return file_path
+
+
+def draw_wrapped_text(canvas, text, x, y, max_width):
+    # Split the text into words
+    words = text.split()
+    lines = []
+    current_line = ''
+    for word in words:
+        # Check the width of the line with the new word added
+        line_width = canvas.stringWidth(current_line + word, 'Helvetica', 12)
+        if line_width <= max_width:
+            current_line += word + ' '
+        else:
+            # If the line is too wide, start a new line
+            lines.append(current_line)
+            current_line = word + ' '
+    lines.append(current_line)  # Add the last line
+
+    # Draw each line on the canvas, adjusting the y position
+    for line in lines:
+        canvas.drawString(x, y, line)
+        y -= 20  # Adjust line spacing as needed
+    return y  # Return the new y position
 
 
 def encrypt_pdf(file_path, password):
@@ -686,8 +733,6 @@ def delete_account():
 @login_required
 def recommendations():
     return render_template('recommendations.html')
-
-
 
 
 if __name__ == '__main__':
