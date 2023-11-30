@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Report | Period Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<nav class="nav-container">
+    <ul class="navbar">
+        <li><a href="/log">Log</a></li>
+        <li><a href="/report">Report</a></li>
+        <li><a href="/recommendations">Recommendations</a></li>
+        <li><a href="/account">Account</a></li>
+    </ul>
+</nav>
+
+<section id="report-container">
+    <div class="report-section">
+        <div class="average-values-box">
+            <h2>Average Values</h2>
+            <p>Period Length → <span id="avg-period-length">[avg-period-length]</span></p>
+            <p>Cycle Length → <span id="avg-cycle-length">[avg-cycle-length]</span></p>
+            <p>Follicular phase → 21 days</p>
+            <p>Ovulation phase → 2 days</p>
+            <p>Luteal phase → 4 days</p>
+        </div>
+        <div class="fertility-window-box">
+            <h2>Fertility Window</h2>
+            <p><span id="current-fertility-window">[current-fertility-window]</span></p>
+        </div>
+    </div>
+
+    <div class="report-section">
+        <div class="past-cycles">
+            <h2>Past Cycles</h2>
+            <table class="cycle-table" id="past-cycle-table">
+                <tr class="cycle-heading">
+                    <th>Date Range</th>
+                </tr>
+                <tr class="cycle-data" id="past-cycle-data">
+                    <!-- populate table depending on database -->
+                </tr>
+            </table>
+        </div>
+        <div class="predicted-cycles">
+            <h2>Predicted Cycles</h2>
+            <table class="cycle-table" id="predicted-cycle-table">
+                <tr class="cycle-heading">
+                    <th>Date Range</th>
+                </tr>
+                <tr class="cycle-data" id="predicted-cycle-data">
+                    <!-- populate table depending on database -->
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="share-data">
+        <button onclick="window.location.href = '/sharedata.html'">Share Data Securely</button>
+    </div>
+</section>
+</body>
+<script src="/static/reportScript.js"></script>
+</html>
