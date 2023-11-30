@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <h1>Period Tracker Setup</h1>
-    <form id="setupForm">
+    <h1 class="index">Period Tracker Setup</h1>
+    <p class="paragraph"> To set up your account we need some information:</p>
+    <form id="setupForm" class="form-container">
         <div class="form-group">
             <label for="lastPeriodDate">Date of Last Period:</label>
             <input type="date" id="lastPeriodDate" required>
@@ -20,7 +21,7 @@
             <label for="averageCycleLength">Average Cycle Length (in days):</label>
             <input type="number" id="averageCycleLength" placeholder="e.g., 28" required>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" class="button">Submit</button>
     </form>
 
     <script src="/static/setupScript.js"></script>

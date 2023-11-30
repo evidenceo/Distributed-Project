@@ -14,48 +14,39 @@
 <body>
 <nav class="nav-container">
     <ul class="navbar">
-        <li><a href="/log">Log</a></li>
-        <li><a href="/report">Report</a></li>
-        <li><a href="/recommendations">Recommendations</a></li>
+        <div class="nav-group">
+            <li><a href="/log">Log</a></li>
+            <li><a href="/report">Report</a></li>
+            <li><a href="/recommendations">Recommendations</a></li>
+            <li><a href="/sharedata">Share Data Securely </a></li>
+        </div>
         <li><a href="/account">Account</a></li>
     </ul>
 </nav>
 
-<section class="dashboard">
+<section class="dashboard" id="dashboard">
     <div id="dashboard-slider">
         <!-- Slide 1: Welcome -->
         <div class="slide">
-            <p>Welcome, <span id="user-first-name">{{ first_name }}!</span> </p>
-        </div>
-
-        <!-- Slide 2: Period Information -->
-        <div class="slide">
-            {% if on_period %}
-                <p>{{ current_day }} Day of Period</p>
-            {% else %}
-                <p>Your period is expected to start in {{ days_until_period }} days</p>
-            {% endif %}
-        </div>
-
-        <div class="slide">
-            <p>You are in your {{ current_phase }} phase</p>
+            <h1 id="slide-text">Welcome, <span id="user-first-name">{{ first_name }}!</span> </h1>
         </div>
     </div>
 </section>
 
 <section class="calender-section">
-    <button onclick="window.location.href='/edit-period'" class="button">Edit Period</button>
     <div id="calendar">
         <!-- Calendar implementation here -->
     </div>
 
     <div id="dayPopup" class="popup-modal" style="display:none;">
-        <span class="close-popup" onclick="closePopup()">X</span>
+        <span class="close-popup" onclick="closePopup()">&times</span>
         <p>Select an option:</p>
-        <button onclick="markPeriodStart(selectedDate)">Period Start</button>
-        <button onclick="markPeriodEnd(selectedDate)">Period End</button>
-        <button onclick="deletePeriod()">Delete Period</button>
-        <button onclick="addSymptoms(selectedDate)">Add Symptoms</button>
+        <div class="popup-content">
+            <button onclick="markPeriodStart(selectedDate)" class="button">Period Start</button>
+            <button onclick="markPeriodEnd(selectedDate)" class="button">Period End</button>
+            <button onclick="deletePeriod()" class="button">Delete Period</button>
+            <button id="addSymptomsBtn" class="button">Add Symptoms</button>
+        </div>
     </div>
 
 </section>

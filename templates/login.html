@@ -6,19 +6,20 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-<h1 class="heading"> Login to Period Tracker</h1>
+<h1 class="index"> Login to Period Tracker</h1>
 <form id="loginForm" class="form-container">
     <p>Email Address: </p>
-    <input type="email" id="login-email" placeholder="Email here" class="form" required>
+    <input type="email" id="loginEmail" placeholder="Email here" class="form" required>
     <br>
     <p>Password: </p>
-    <input type="password" id="login-password" placeholder="Password here" class="form" required>
+    <input type="password" id="loginPassword" placeholder="Password here" class="form" required>
     <br>
     <br>
-    <button type="submit" class="button-one">Login</button>
+    <button type="submit" class="button">Login</button>
 </form>
 
-<p>First Time User?</p>
-<button onclick="window.location.href='/signup';" id="signup-btn" class="button-one">Sign up</button>
+<p class="paragraph">First Time User?</p>
+<button onclick="window.location.href='/signup';" id="signup-btn" class="button">Sign up</button>
 </body>
+<script src="/static/script.js"></script>
 </html>

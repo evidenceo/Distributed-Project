@@ -8,14 +8,17 @@
 <body>
 <nav class="nav-container">
     <ul class="navbar">
-        <li><a href="/log">Log</a></li>
-        <li><a href="/report">Report</a></li>
-        <li><a href="/recommendations">Recommendations</a></li>
+        <div class="nav-group">
+            <li><a href="/log">Log</a></li>
+            <li><a href="/report">Report</a></li>
+            <li><a href="/recommendations">Recommendations</a></li>
+            <li><a href="/sharedata">Share Data Securely </a></li>
+        </div>
         <li><a href="/account">Account</a></li>
     </ul>
 </nav>
 
-<section class="profile-container">
+<section class="form-container">
     <h1>User Profile</h1>
     <div class="profile-body">
         <p id="user-name">Name: <span>{{ user.first_name }}</span> <span>{{ user.last_name }}</span></p>

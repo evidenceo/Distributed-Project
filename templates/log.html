@@ -8,9 +8,12 @@
 <body>
 <nav class="nav-container">
     <ul class="navbar">
-        <li><a href="/log">Log</a></li>
-        <li><a href="/report">Report</a></li>
-        <li><a href="/recommendations">Recommendations</a></li>
+        <div class="nav-group">
+            <li><a href="/log">Log</a></li>
+            <li><a href="/report">Report</a></li>
+            <li><a href="/recommendations">Recommendations</a></li>
+            <li><a href="/sharedata">Share Data Securely </a></li>
+        </div>
         <li><a href="/account">Account</a></li>
     </ul>
 </nav>
@@ -18,10 +21,10 @@
 <section id="log-container">
     <div id="date-navigator">
         <button class="nav-button" id="prev-day">←</button>
-        <span id="current-date">[Date Here]</span>
+        <span id="current-date" class="paragraph">[Date Here]</span>
         <button class="nav-button" id="next-day">→</button>
     </div>
-    <form id="symptoms-form">
+    <form id="symptoms-form" class="form-container">
         <div class="symptom-input">
             <button type="button" class="symptom-btn" id="flow-btn">Flow <span class="arrow">></span></button>
             <div id="flow-list"> <!-- flow list will go here --> </div>
@@ -71,7 +74,7 @@
             </div>
         </div>
         <div class="symptom-input">
-            <button type="button" class="symptom-btn" id="symptom-btn">Symptoms<span class="arrow">></span></button>
+            <button type="button" class="symptom-btn" id="symptom-btn">Symptoms <span class="arrow">></span></button>
             <div id="symptoms-list"> <!-- symptom list will go here --> </div>
             <div class="sym-modal" id="sym-modal">
                 <div class="modal-content">
@@ -112,7 +115,7 @@
             </div>
         </div>
         <div class="symptom-input">
-            <button type="button" class="symptom-btn" id="mood-btn">Mood<span class="arrow">></span></button>
+            <button type="button" class="symptom-btn" id="mood-btn">Mood <span class="arrow">></span></button>
             <div id="mood-list"> <!-- mood list will go here --> </div>
             <div class="sym-modal" id="mood-modal">
                 <div class="modal-content">
@@ -159,7 +162,7 @@
                 <div id="notes-list"> <!-- notes will go here --> </div>
             </div>
         </div>
-        <button type="submit" id="add-symptoms">Save</button>
+        <button type="submit" id="add-symptoms" class="button">Save</button>
     </form>
 </section>
 </body>

@@ -8,15 +8,18 @@
 <body>
 <nav class="nav-container">
     <ul class="navbar">
-        <li><a href="/log">Log</a></li>
-        <li><a href="/report">Report</a></li>
-        <li><a href="/recommendations">Recommendations</a></li>
+        <div class="nav-group">
+            <li><a href="/log">Log</a></li>
+            <li><a href="/report">Report</a></li>
+            <li><a href="/recommendations">Recommendations</a></li>
+            <li><a href="/sharedata">Share Data Securely </a></li>
+        </div>
         <li><a href="/account">Account</a></li>
     </ul>
 </nav>
 
 <section id="report-container">
-    <div class="report-section">
+    <div class="form-container" >
         <div class="average-values-box">
             <h2>Average Values</h2>
             <p>Period Length → <span id="avg-period-length">[avg-period-length]</span></p>
@@ -25,13 +28,16 @@
             <p>Ovulation phase → 2 days</p>
             <p>Luteal phase → 4 days</p>
         </div>
+    </div>
+
+    <div class="form-container">
         <div class="fertility-window-box">
             <h2>Fertility Window</h2>
             <p><span id="current-fertility-window">[current-fertility-window]</span></p>
         </div>
     </div>
 
-    <div class="report-section">
+    <div class="form-container">
         <div class="past-cycles">
             <h2>Past Cycles</h2>
             <table class="cycle-table" id="past-cycle-table">
@@ -43,6 +49,9 @@
                 </tr>
             </table>
         </div>
+    </div>
+
+    <div class="form-container">
         <div class="predicted-cycles">
             <h2>Predicted Cycles</h2>
             <table class="cycle-table" id="predicted-cycle-table">
@@ -57,7 +66,7 @@
     </div>
 
     <div class="share-data">
-        <button onclick="window.location.href = '/sharedata'">Share Data Securely</button>
+        <button onclick="window.location.href = '/sharedata'" class="ind-button">Share Data Securely</button>
     </div>
 </section>
 </body>

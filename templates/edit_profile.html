@@ -8,14 +8,17 @@
 <body>
 <nav class="nav-container">
     <ul class="navbar">
-        <li><a href="/log">Log</a></li>
-        <li><a href="/report">Report</a></li>
-        <li><a href="/recommendations">Recommendations</a></li>
+        <div class="nav-group">
+            <li><a href="/log">Log</a></li>
+            <li><a href="/report">Report</a></li>
+            <li><a href="/recommendations">Recommendations</a></li>
+            <li><a href="/sharedata">Share Data Securely </a></li>
+        </div>
         <li><a href="/account">Account</a></li>
     </ul>
 </nav>
 
-<section   class="edit-profile-container">
+<section   class="form-container">
     <h1>Edit Profile</h1>
       <div class="edit-profile-data">
          <form method="POST" action="{{ url_for('process_edit_profile') }}">
@@ -25,6 +28,8 @@
             <input type="text" name="lastName" placeholder="Last Name"  value="{{ user.last_name}}" class="form" required>
              <p>Email: </p>
             <input type="email" name="email" placeholder="Email" value="{{user.email}}" class="form" required>
+             <br>
+             <br>
             <button type="submit" class="button">Save Changes</button>
         </form>
     </div>
