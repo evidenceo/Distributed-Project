@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Account | Period Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<nav class="nav-container">
+    <ul class="navbar">
+        <li><a href="/log">Log</a></li>
+        <li><a href="/report">Report</a></li>
+        <li><a href="/recommendations">Recommendations</a></li>
+        <li><a href="/account">Account</a></li>
+    </ul>
+</nav>
+
+<section class="profile-container">
+    <h1>User Profile</h1>
+    <div class="profile-body">
+        <p id="user-name">Name: <span>{{ user.first_name }}</span> <span>{{ user.last_name }}</span></p>
+        <p id="user-email">Email: <span>{{ user.email }}</span></p>
+        <a href="/show_edit_profile" class="button">Edit Profile</a>
+        <button onclick="confirmDelete()" class="button" id="delete-button">Delete Account</button>
+    </div>
+    <script src="/static/accountScript.js"></script>
+</section>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Account | Period Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<nav class="nav-container">
+    <ul class="navbar">
+        <li><a href="/log">Log</a></li>
+        <li><a href="/report">Report</a></li>
+        <li><a href="/recommendations">Recommendations</a></li>
+        <li><a href="/account">Account</a></li>
+    </ul>
+</nav>
+
+<section   class="edit-profile-container">
+    <h1>Edit Profile</h1>
+      <div class="edit-profile-data">
+         <form method="POST" action="{{ url_for('process_edit_profile') }}">
+             <p>First Name: </p>
+             <input type="text" name="firstName" placeholder="First Name" value="{{ user.first_name}}" class="form" required>
+             <p>Last Name: </p>
+            <input type="text" name="lastName" placeholder="Last Name"  value="{{ user.last_name}}" class="form" required>
+             <p>Email: </p>
+            <input type="email" name="email" placeholder="Email" value="{{user.email}}" class="form" required>
+            <button type="submit" class="button">Save Changes</button>
+        </form>
+    </div>
+</section>
+
+</body>
+<script src="/static/accountScript.js"></script>
+</html>

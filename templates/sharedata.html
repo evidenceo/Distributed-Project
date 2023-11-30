@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Share-Data-Securely| Period Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<nav class="nav-container">
+    <ul class="navbar">
+        <li><a href="/log">Log</a></li>
+        <li><a href="/report">Report</a></li>
+        <li><a href="/recommendations">Recommendations</a></li>
+        <li><a href="/account">Account</a></li>
+    </ul>
+</nav>
+
+<section id="share-data-section">
+    <form id="share-form">
+        <h2>Share Your Data</h2>
+        <label for="recipient-email">Recipient's Email:</label>
+        <input type="email" id="recipient-email" name="recipientEmail" required placeholder="Enter recipient's email">
+
+        <label for="recipient-name">Recipient's Name:</label>
+        <input type="text" id="recipient-name" name="recipientName" required placeholder="Enter recipient's name">
+
+        <label for="share-password">Password for File:</label>
+        <input type="password" id="share-password" name="sharePassword" required placeholder="Enter one-time password">
+
+        <button type="submit">Send Report</button>
+    </form>
+</section>
+
+<section id="download-data-section">
+    <h2>Download Report</h2>
+    <button type="button" id="download-report-btn">Download Report</button>
+    <form id="verify-user" class="hidden">
+        <h2>For Security Purposes,Enter Your Login Password</h2>
+        <label for="login-password">Login Password: </label>
+        <input type="password" id="login-password" name="loginPassword" required placeholder="Enter Password here">
+        <button type="submit">Send</button>
+    </form>
+    <form id="encrypt-file" class="hidden">
+        <h2>Enter Password for Encryption</h2>
+        <label for="encrypt-password">Encryption Password: </label>
+        <input type="password" id="encrypt-password" name="encryptPassword" required placeholder="Enter Password here">
+        <button type="submit">Send</button>
+    </form>
+    <button type="button" id="download-report-success-btn" class="hidden">Click to Download Report</button>
+</section>
+</body>
+<script src="/static/shareScript.js"></script>
+</html>
