@@ -1,0 +1,247 @@
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #EFD9CE;
+    color: #517664;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #ce7b91;
+    text-align: center;
+}
+
+/* Navbar Styles */
+.nav-container {
+    background-color: #517664;
+    padding: 10px 0;
+}
+
+.navbar {
+    list-style: none;
+    margin: 5px;
+    padding: 2px;;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #EFD9CE;
+    font-weight: bold;
+}
+
+/* Button Styles */
+.button, .button-one, .nav-button , .symptom-btn {
+    background-color: #ce7b91;
+    color: #EFD9CE;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.button:hover, .button-one:hover, .nav-button:hover, .symptom-btn:hover {
+    background-color: #b0697a;
+}
+
+/* Form Styles */
+.form-container{
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(236, 187, 200, 0.8);
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="date"], input[type="number"], input[type="email"], input[type="password"], input[type="text"],textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Modal Styles */
+.modal, .sym-modal, .popup-modal {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    padding: 40px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: none;
+}
+
+.modal-content, .sym-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.close, .close-modal {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.checkbox-group {
+    margin-bottom: 10px;
+}
+
+/* Dashboard and Calendar Styles */
+.dashboard, .calender-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(236, 187, 200, 0.8);
+    border-radius: 8px;
+}
+
+#dashboard-slider, #calendar {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.slide {
+    margin-bottom: 20px;
+}
+
+/* Additional Styles */
+.notes-container, .symptom-input {
+    margin-bottom: 20px;
+}
+
+.add-notes {
+    width: 90%;
+    height: 100px;
+    border: 2px solid #517664;
+    border-radius: 4px;
+}
+
+
+.hidden {
+    display: none;
+}
+
+/* INDEX.HTML */
+.button-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.ind-button {
+    background-color: #ce7b91;
+    color: #EFD9CE;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.index {
+    font-size: 50px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+/* SIGNUP.HTML */
+#signupForm, #loginForm, #setupForm, #symptoms-form{
+    background-color: rgba(236, 187, 200, 0.8)
+}
+
+/* LOGIN.HTML */
+.paragraph {
+    text-align: center;
+}
+
+#signup-btn {
+    display: block;
+    margin: 20px auto;
+}
+
+/* MAIN.HTML */
+#slide-text {
+    color: #517664;
+}
+
+.custom-event {
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.event-title {
+    font-size: 25px;
+    color: #fff
+}
+
+.popup-content {
+    margin: 5px;
+    padding: 2px;;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/* LOG.HTML */
+#date-navigator {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.symptom-btn {
+    width: 90%;
+}
+
+#flow-btn, #med-btn, #sex-btn, #symptom-btn, #mood-btn{
+    text-align: left;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.checkbox-group label {
+    margin: 0;
+}
+
+/* REPORT.HTML */
+.report-section {
+    background-color: rgba(236, 187, 200, 0.8)
+}
