@@ -17,3 +17,6 @@ B. Ensure your database has been initialized
   To use the one on the repo, run the same code, if it doesn't work, create a new one instead
   
 C. Run main.py, Flask would provide a link: http://127.0.0.1:5000/. Click on the link and interact with the application.
+
+*Share* *Your* *Data*
+The "Share Data" functionality automatically sends any file to an account created on mailtrap that has been added to the code. To test the share data functionality, we also have another option, which is to download the encrypted file. You can try this option instead or add your mail configurations in main.py instead.
