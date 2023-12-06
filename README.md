@@ -1,6 +1,7 @@
 # Distributed-Project - Period Tracker Application
 
 *How* *To* *Compile*
+
 A. Ensure you have every library on main.py installed in your venv. Use pip
    
 B. Ensure your database has been initialized
