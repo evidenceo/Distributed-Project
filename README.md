@@ -14,9 +14,9 @@ B. Ensure your database has been initialized
   6. then run flask db upgrade
   
   This would then create a new instance and migration folder, you have to delete the one we have on the repo first (assuming you have it downloaded). 
-  To use the one on the repo, run the same code, if it doesn't work, create a new one instead
+  To use the one on the repo, run the same code .
   
-C. Run main.py, Flask would provide a link: http://127.0.0.1:5000/. Click on the link and interact with the application.
+C. Run main.py, Flask would provide a link: http://127.0.0.1:5000/. Click on the link, sign in and interact with the application.
 
 *Share* *Your* *Data*
 
