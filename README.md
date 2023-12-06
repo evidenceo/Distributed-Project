@@ -1,8 +1,8 @@
 # Distributed-Project - Period Tracker Application
 To create a database to save user info, run this in your terminal. (PowerShell)
-flask db init
-flask db migrate
-at first it gave me an error so i ran this: $env:FLASK_APP = "main"
-tried flask db migrate again
-then it worked
-then run flask db upgrade
+1. flask db init
+2. flask db migrate
+3. at first it gave me an error so i ran this: $env:FLASK_APP = "main"
+4. tried flask db migrate again
+5. then it worked
+6. then run flask db upgrade
