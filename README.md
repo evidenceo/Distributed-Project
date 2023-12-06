@@ -6,3 +6,6 @@ To create a database to save user info, run this in your terminal. (PowerShell)
 4. tried flask db migrate again
 5. then it worked
 6. then run flask db upgrade
+
+This would then create a new instance and migration folder, you have to delete the one we have on the repo first (assuming you have it downloaded). 
+To use the one on the repo, run the same code, if it doesn't work, create a new one instead
